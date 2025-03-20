@@ -1,0 +1,192 @@
+/* TwoFactorAuth.css */
+.tfa-container {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tfa-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.tfa-header {
+  background-color: #3b5998;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.tfa-logo {
+  height: 24px;
+}
+
+.tfa-body {
+  padding: 24px;
+}
+
+.tfa-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1c1e21;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.tfa-info {
+  margin-bottom: 24px;
+}
+
+.tfa-info p {
+  font-size: 14px;
+  color: #606770;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tfa-form {
+  margin-top: 16px;
+}
+
+.tfa-code-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.tfa-code-input {
+  width: 40px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #dddfe2;
+  border-radius: 4px;
+  background-color: #f5f6f7;
+  color: #1c1e21;
+  padding: 0;
+}
+
+.tfa-code-input:focus {
+  border-color: #3b5998;
+  outline: none;
+  background-color: #fff;
+}
+
+.tfa-resend {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tfa-resend-button {
+  background: none;
+  border: none;
+  color: #3b5998;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.tfa-resend-button:hover:not(.disabled) {
+  background-color: rgba(59, 89, 152, 0.1);
+  text-decoration: underline;
+}
+
+.tfa-resend-button.disabled {
+  color: #90949c;
+  cursor: not-allowed;
+}
+
+.tfa-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tfa-submit-button {
+  background-color: #3b5998;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 12px;
+  height: 40px;
+}
+
+.tfa-submit-button:hover {
+  background-color: #324b81;
+}
+
+.tfa-cancel-link {
+  color: #3b5998;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.tfa-cancel-link:hover {
+  text-decoration: underline;
+}
+
+.tfa-help {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #dddfe2;
+}
+
+.tfa-help-link {
+  color: #3b5998;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.tfa-help-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 576px) {
+  .tfa-card {
+    max-width: 100%;
+  }
+
+  .tfa-code-inputs {
+    gap: 4px;
+  }
+
+  .tfa-code-input {
+    width: 36px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .tfa-title {
+    font-size: 18px;
+  }
+
+  .tfa-body {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .tfa-code-input {
+    width: 30px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

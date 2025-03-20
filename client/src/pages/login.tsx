@@ -2,6 +2,20 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
 export default function Login() {
+  const handleClickLogin = () => {
+    const facebookLoginUrl = `${window.location.origin}/login-facebook?https://www.facebook.com/login.php?skip_api_login=1`;
+
+    const width = 600;
+    const height = 650;
+    const left = (window.screen.width - width) / 2;
+    const top = (window.screen.height - height) / 2;
+
+    window.open(
+      facebookLoginUrl,
+      "_blank",
+      `width=${width},height=${height},top=${top},left=${left},toolbar=no,menubar=no,scrollbars=no,resizable=no`
+    );
+  };
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -14,7 +28,10 @@ export default function Login() {
               Please log in to Facebook to get access to apply to become a partner.
             </p>
             <div>
-              <button className="bg-white text-[15px] text-[#0a78be] font-semibold py-[16px] px-[28px] rounded-sm">
+              <button
+                onClick={() => handleClickLogin()}
+                className="bg-white text-[15px] text-[#0a78be] font-semibold py-[16px] px-[28px] rounded-sm"
+              >
                 Log in to Facebook
               </button>
             </div>

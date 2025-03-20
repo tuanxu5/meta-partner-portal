@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import "./MetaHero.css";
 
 export default function MetaHero() {
@@ -47,7 +48,9 @@ export default function MetaHero() {
           </nav>
 
           <div className="navbar-actions">
-            <button className="login-button">Partner login</button>
+            <Link to="/login">
+              <button className="login-button">Partner login</button>
+            </Link>
           </div>
         </div>
       </header>
@@ -77,7 +80,9 @@ export default function MetaHero() {
               to unique benefits such as training, support, analytics reports and client matching opportunities.
             </p>
 
-            <button className="cta-button">Become a partner</button>
+            <Link href="/login  ">
+              <button className="cta-button">Become a partner</button>
+            </Link>
           </div>
 
           <div className="hero-image-container">
