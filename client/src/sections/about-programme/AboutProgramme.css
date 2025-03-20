@@ -1,0 +1,92 @@
+/* AboutProgramme.css */
+.about-container {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 60px 0px;
+  color: #1c1e21;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-image-container {
+  flex: 1;
+  max-width: 50%;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1c1e21;
+}
+
+.about-paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #65676b;
+  margin-bottom: 20px;
+}
+
+.about-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .about-content {
+    gap: 40px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-image-container {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .about-text {
+    order: 2;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about-container {
+    padding: 40px 16px;
+  }
+
+  .about-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .about-paragraph {
+    font-size: 15px;
+  }
+}
