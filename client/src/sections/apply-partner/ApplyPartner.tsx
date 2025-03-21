@@ -36,6 +36,7 @@ export default function ApplyPartner() {
             src="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.2365-6/296912800_1419099301920093_9021293747789925534_n.jpg?stp=dst-webp&_nc_cat=102&ccb=1-7&_nc_sid=e280be&_nc_ohc=UTG0ntRMs1gQ7kNvgGPCcg0&_nc_oc=AdkpK6ywlTQ16r-72XkwJZTut7TO52nGWuvDxEPzeSlk6aX3r6coCVHRq1bUSU9eOas&_nc_zt=14&_nc_ht=scontent.fhan5-2.fna&_nc_gid=UBlhdVOBuOH2386m2KyTWw&oh=00_AYHEaHwMV3XbrbRZwCs3E5IDBLk59V8nmSk1AC1F9swe4g&oe=67F65616"
             alt="Woman working on laptop"
             className="apply-image"
+            loading="lazy"
           />
         </div>
       </div>
@@ -66,6 +67,7 @@ export default function ApplyPartner() {
             No
           </label>
         </div>
+        {isFeedbackSubmitted && <p className="feedback-thanks">Thank you for your feedback!</p>}
       </div>
     </div>
   );
