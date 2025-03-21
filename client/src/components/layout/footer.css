@@ -320,6 +320,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .fb-footer-content {
     grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
   }
 }
 

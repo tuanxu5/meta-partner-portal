@@ -25,25 +25,20 @@ const MetaHero = () => {
           isSticky ? "fixed top-0 left-0 shadow-md" : ""
         }`}
       >
-        <div className="max-w-[1232px] mx-auto px-4 py-3 flex flex-wrap items-center justify-between relative">
+        <div className="max-w-[1232px] mx-auto py-3 flex flex-wrap items-center justify-between relative">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
               src="https://scontent.fhan5-9.fna.fbcdn.net/v/t39.8562-6/263601789_228953422693663_3786388595935595545_n.svg?_nc_cat=110&ccb=1-7&_nc_sid=f537c7&_nc_ohc=2XJw9LHf2F8Q7kNvgEblOSb&_nc_oc=AdmY1VfjkxiyPVpPePWByCiGWpWqApoYTMe4meThLwWGpK1Ub8VovqLapcnE0M2SN9A&_nc_zt=14&_nc_ht=scontent.fhan5-9.fna&_nc_gid=nDeXr2uLZxUohW0k-C-1yw&oh=00_AYF81YfAvIK1HXpzEDmc8wLm09xCfry6z0yOhF_q22jYXQ&oe=67E1DAC3"
               alt="Meta Business Partners"
-              className="h-6"
+              className="h-8"
             />
           </div>
 
           {/* Navigation Links */}
           <nav
             className={`
-            w-full md:w-auto md:flex md:items-center md:space-x-6 
-            ${isMobileMenuOpen ? "block" : "hidden"}
-            absolute md:relative top-full left-0 md:top-auto 
-            bg-white md:bg-transparent 
-            shadow-md md:shadow-none 
-            mt-2 md:mt-0 py-4 md:py-0
+            w-full md:w-auto md:items-center md:space-x-6 absolute md:relative top-full left-0 md:top-auto bg-white md:bg-transparent shadow-md md:shadow-none mt-2 md:mt-0 py-4 md:py-0 hidden lg:inline-block
           `}
           >
             <a href="#" className="block md:inline-block px-4 md:px-0 py-2 md:py-0 hover:text-blue-600">
@@ -59,19 +54,27 @@ const MetaHero = () => {
 
           <div className="navbar-actions">
             <Link to="/login">
-              <button className="login-button">Partner login</button>
+              <button className="border text-[#344854] text-sm font-bold border-[#344854] px-6 text-nowrap py-2.5 rounded-md">
+                Partner login
+              </button>
             </Link>
           </div>
         </div>
       </header>
 
       {/* Notification Bar */}
-      <div className="bg-gray-100 py-3">
-        <div className="max-w-[1232px] mx-auto px-4 flex items-center justify-center space-x-2 text-sm">
-          <span className="text-gray-600">○</span>
+      <div className="bg-[#DEE3E9] py-3">
+        <div className="max-w-[1232px] mx-auto px-4 flex items-center justify-center space-x-2 text-sm gap-2">
+          <img
+            src="https://lookaside.fbsbx.com/elementpath/media/?media_id=314421987122918&version=1740504992&transcode_extension=webp"
+            alt=""
+            width="28"
+          />
           <p className="text-gray-700">Partners, discover new Reels resources on the partner hub</p>
           <a href="#" className="text-blue-600 hover:underline">
-            Learn more
+            <button className="border text-[#344854] font-bold border-[#344854] px-6 text-nowrap py-2.5 rounded-md">
+              Learn more
+            </button>
           </a>
         </div>
       </div>

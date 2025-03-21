@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { navigate } from "wouter/use-browser-location";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -22,6 +23,11 @@ export default function Header() {
     // Cleanup
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
+
+  const handleClickLogin = () => {
+    setShowUserDropdown(!showUserDropdown);
+    navigate("/login");
+  };
 
   const navItems = [
     {
@@ -163,7 +169,7 @@ export default function Header() {
 
   return (
     <div className="w-full bg-white shadow-sm relative z-50">
-      <div className="mx-auto px-4 md:px-6 lg:px-10">
+      <div className="mx-auto px-4 md:px-4 lg:px-10">
         <div className="flex items-center justify-between h-16 md:h-20 lg:h-[80px]">
           {/* Logo */}
           <div className="flex items-center">
@@ -281,17 +287,19 @@ export default function Header() {
                 >
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <h3 className="font-medium text-gray-900">Log in to Meta for Business</h3>
-                      <p className="text-sm text-gray-600">Manage your ad accounts and get personalised support.</p>
-                      <button className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
+                      <h3 className="font-medium text-gray-900 text-center">Log in to Meta for Business</h3>
+                      <p className="text-sm text-gray-600 text-center mb-10">
+                        Manage your ad accounts and get personalised support.
+                      </p>
+                      <button
+                        onClick={handleClickLogin}
+                        className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-full"
+                      >
                         <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="#FFFFFF">
                           <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9 21.59 18.03 20.37 19.58 18.57C21.13 16.76 21.98 14.49 22 12.14C22 6.55 17.5 2.04 12 2.04Z" />
                         </svg>
                         Log in with Facebook
                       </button>
-                    </div>
-                    <div className="border-t pt-3">
-                      <button className="text-[#0064e0] hover:text-blue-700 font-medium">Create a Page</button>
                     </div>
                   </div>
                 </div>
@@ -299,7 +307,7 @@ export default function Header() {
             </div>
 
             {/* Start now button */}
-            <button className="bg-[#0064e0] hover:bg-blue-700 text-[14px] text-white py-2 px-3 md:py-2.5 md:px-4 rounded-full flex items-center gap-1 hidden sm:inline">
+            <button className="bg-[#0064e0] hover:bg-blue-700 text-[14px] text-white py-2 px-3 md:py-2.5 md:px-4 rounded-full items-center gap-1 hidden lg:flex">
               <span className="hidden sm:inline">Start now</span>
               <span className="sm:hidden">Start</span>
               <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
