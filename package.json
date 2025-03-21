@@ -105,5 +105,6 @@
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
-  }
+  },
+  "packageManager": "yarn@4.7.0"
 }
