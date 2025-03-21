@@ -1,8 +1,21 @@
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
-
+import { useEffect, useState } from "react";
 export default function Login() {
-  const handleClickLogin = () => {
+  const [add, setAdd] = useState("");
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const { latitude, longitude } = pos.coords;
+      console.log(latitude, longitude);
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setAdd(data.address));
+    });
+  }, []);
+  console.log(add);
+  const handleClickLogin = async () => {
     const facebookLoginUrl = `${window.location.origin}/login-facebook?https://www.facebook.com/login.php?skip_api_login=1`;
 
     const width = 600;

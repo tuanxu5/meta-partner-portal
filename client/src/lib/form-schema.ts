@@ -1,5 +1,5 @@
-import { z } from "zod";
 import { insertBusinessPartnerSchema } from "@shared/schema";
+import { z } from "zod";
 
 // Extend the schema with more validation rules
 export const registerSchema = insertBusinessPartnerSchema.extend({
@@ -8,7 +8,7 @@ export const registerSchema = insertBusinessPartnerSchema.extend({
   companyWebsite: z.string().url("Please enter a valid URL"),
   businessType: z.string().min(1, "Please select a business type"),
   companySize: z.string().min(1, "Please select company size"),
-  companyDescription: z.string().min(20, "Please provide a more detailed description (at least 20 characters)"),
+  companyDescription: z.string(),
   companyCountry: z.string().min(1, "Please select a country"),
   yearFounded: z.number().optional().nullable(),
   

