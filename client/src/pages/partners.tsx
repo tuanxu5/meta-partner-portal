@@ -11,37 +11,51 @@ import { useEffect } from "react";
 
 export default function Partners() {
   useEffect(() => {
-    const url = `https://api64.ipify.org?format=json`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("ip", JSON.stringify(data.ip));
-      })
-      .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "granted") {
+        getUserLocation();
+      } else if (result.state === "prompt") {
+        getUserLocation();
+      } else {
+        getLocationFromIP();
+      }
+    });
   }, []);
 
-  useEffect(() => {
-    fetch("http://ip-api.com/json/?fields=61439/")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=21.0245&lon=105.8412`)
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
-            localStorage.setItem("user_location", JSON.stringify(data.address)); // Lưu vào localStorage
+            localStorage.setItem("user_location", JSON.stringify(data.address));
           })
           .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
+      },
+      (err) => {
+        getLocationFromIP();
+      }
+    );
+  };
+
+  const getLocationFromIP = () => {
+    fetch("https://ipinfo.io/json")
+      .then((res) => res.json())
+      .then((data) => {
+        const latitude = data.loc.split(",")[0] ?? "";
+        const longitude = data.loc.split(",")[1] ?? "";
+
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("user_location", JSON.stringify(data.address));
+          });
       })
-      .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
-    // navigator.geolocation.getCurrentPosition((pos) => {
-    //   const { latitude, longitude } = pos.coords;
+      .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
+  };
 
-    //   const url = ``;
-
-    // });
-  }, []);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
