@@ -20,6 +20,7 @@
   font-weight: 600;
   margin-bottom: 16px;
   color: #1c1e21;
+  line-height: 1.2;
 }
 
 .programme-description {
@@ -41,6 +42,7 @@
   flex-wrap: wrap;
   gap: 24px;
   justify-content: center;
+  margin-bottom: 32px;
 }
 
 .tier-card {
@@ -54,6 +56,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tier-badge {
@@ -65,6 +73,7 @@
   text-transform: uppercase;
   margin-bottom: 16px;
   color: #ffffff;
+  display: inline-block;
 }
 
 .tier-badge.member {
@@ -80,32 +89,68 @@
   font-weight: 600;
   margin-bottom: 16px;
   color: #1c1e21;
+  line-height: 1.3;
 }
 
 .tier-description {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #65676b;
 }
 
-/* Responsive styles */
+.programme-footnote {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #8c9aac;
+  font-style: italic;
+}
+
+/* Enhanced responsive styles */
+@media screen and (max-width: 1024px) {
+  .programme-container {
+    padding: 50px 24px;
+  }
+
+  .programme-header {
+    max-width: 90%;
+  }
+
+  .tier-card {
+    padding: 28px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .programme-header h2 {
+    font-size: 30px;
+  }
+
+  .tier-card {
+    min-width: 280px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .programme-container {
+    padding: 40px 20px;
+  }
+
+  .programme-header {
+    margin-bottom: 32px;
+  }
+
   .programme-header h2 {
     font-size: 28px;
   }
 
   .tier-card {
     min-width: 250px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .programme-container {
-    padding: 40px 16px;
+    padding: 24px;
   }
 
-  .programme-header h2 {
-    font-size: 24px;
+  .tier-title {
+    font-size: 22px;
   }
 
   .programme-description,
@@ -113,18 +158,84 @@
     font-size: 15px;
   }
 
+  .programme-tiers-intro {
+    margin-bottom: 28px;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .tiers-container {
-    flex-direction: column;
-    align-items: center;
+    gap: 20px;
   }
 
   .tier-card {
+    flex: none;
     width: 100%;
     max-width: 100%;
-    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .programme-container {
+    padding: 32px 16px;
+  }
+
+  .programme-header h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .programme-description,
+  .programme-tiers-intro {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .programme-tiers-intro {
+    margin-bottom: 24px;
+  }
+
+  .tiers-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tier-card {
+    padding: 20px;
   }
 
   .tier-title {
     font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .tier-description {
+    font-size: 13px;
+  }
+
+  .tier-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .programme-container {
+    padding: 24px 12px;
+  }
+
+  .programme-header h2 {
+    font-size: 22px;
+  }
+
+  .tier-card {
+    padding: 16px;
+  }
+
+  .tier-title {
+    font-size: 18px;
   }
 }

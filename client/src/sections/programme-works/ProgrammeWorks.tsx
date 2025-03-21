@@ -35,6 +35,10 @@ export default function ProgrammeWorks() {
           </p>
         </div>
       </div>
+
+      <div className="programme-footnote">
+        <p>* Terms and conditions apply. Programme benefits are subject to change.</p>
+      </div>
     </div>
   );
 }
