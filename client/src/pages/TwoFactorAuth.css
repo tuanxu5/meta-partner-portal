@@ -1,7 +1,5 @@
-/* TwoFactorAuth.css */
-.tfa-container {
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: #f0f2f5;
+/* TwoFactorAuth.css - phiên bản tiếng Việt */
+.fb-2fa-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,183 +8,271 @@
   box-sizing: border-box;
 }
 
-.tfa-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.fb-2fa-card {
   width: 100%;
-  max-width: 500px;
+  /* max-width: 600px; */
   overflow: hidden;
 }
 
-.tfa-header {
-  background-color: #3b5998;
-  padding: 12px 16px;
+/* Header section */
+.fb-2fa-header {
+  padding: 20px 20px 0 20px;
+  text-align: center;
+}
+
+.fb-2fa-name {
+  color: #606770;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 8px 0;
   text-align: left;
 }
 
-.tfa-logo {
-  height: 24px;
-}
-
-.tfa-body {
-  padding: 24px;
-}
-
-.tfa-title {
+.fb-2fa-title {
+  color: #1c1e21;
   font-size: 20px;
-  font-weight: bold;
-  color: #1c1e21;
-  margin: 0 0 16px 0;
-  text-align: center;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-align: left;
 }
 
-.tfa-info {
-  margin-bottom: 24px;
-}
-
-.tfa-info p {
-  font-size: 14px;
+.fb-2fa-subtitle {
   color: #606770;
-  line-height: 1.5;
-  margin: 0;
+  font-size: 15px;
+  margin: 0 0 20px 0;
+  text-align: left;
+  line-height: 1.4;
 }
 
-.tfa-form {
-  margin-top: 16px;
-}
-
-.tfa-code-inputs {
+.fb-2fa-image-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  gap: 8px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.tfa-code-input {
-  width: 40px;
-  height: 50px;
-  font-size: 24px;
-  text-align: center;
-  border: 1px solid #dddfe2;
-  border-radius: 4px;
-  background-color: #f5f6f7;
-  color: #1c1e21;
-  padding: 0;
+.fb-2fa-image {
+  height: auto;
+  max-width: 100%;
+  /* width: 300px; */
 }
 
-.tfa-code-input:focus {
-  border-color: #3b5998;
-  outline: none;
-  background-color: #fff;
-}
-
-.tfa-resend {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.tfa-resend-button {
-  background: none;
-  border: none;
-  color: #3b5998;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.tfa-resend-button:hover:not(.disabled) {
-  background-color: rgba(59, 89, 152, 0.1);
-  text-decoration: underline;
-}
-
-.tfa-resend-button.disabled {
-  color: #90949c;
-  cursor: not-allowed;
-}
-
-.tfa-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Input field */
+.fb-2fa-input-container {
+  padding: 0 20px;
   margin-bottom: 16px;
 }
 
-.tfa-submit-button {
-  background-color: #3b5998;
+.fb-2fa-code-field {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  padding: 0 16px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.fb-2fa-code-field:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px #e7f3ff;
+  outline: none;
+}
+
+/* Timer */
+.fb-2fa-timer {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.fb-2fa-timer-icon {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.fb-2fa-timer-text {
+  color: #65676b;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Action buttons */
+.fb-2fa-actions {
+  padding: 0 20px 20px 20px;
+}
+
+.fb-2fa-continue-button {
+  width: 100%;
+  height: 48px;
+  background-color: #1877f2;
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
+  border-radius: 100px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  width: 100%;
   margin-bottom: 12px;
-  height: 40px;
 }
 
-.tfa-submit-button:hover {
-  background-color: #324b81;
+.fb-2fa-continue-button:hover {
+  background-color: #166fe5;
 }
 
-.tfa-cancel-link {
-  color: #3b5998;
-  font-size: 14px;
-  text-decoration: none;
+.fb-2fa-alt-button {
+  width: 100%;
+  height: 48px;
+  background-color: #fff;
+  color: black;
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #ddd;
 }
 
-.tfa-cancel-link:hover {
-  text-decoration: underline;
-}
-
-.tfa-help {
-  text-align: center;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid #dddfe2;
-}
-
-.tfa-help-link {
-  color: #3b5998;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.tfa-help-link:hover {
-  text-decoration: underline;
+.fb-2fa-alt-button:hover {
+  background-color: #ebedf0;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 576px) {
-  .tfa-card {
+  .fb-2fa-card {
     max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .tfa-code-inputs {
-    gap: 4px;
-  }
-
-  .tfa-code-input {
-    width: 36px;
-    height: 46px;
-    font-size: 20px;
-  }
-
-  .tfa-title {
-    font-size: 18px;
-  }
-
-  .tfa-body {
-    padding: 16px;
+  .fb-2fa-image {
+    width: 250px;
   }
 }
 
-@media screen and (max-width: 350px) {
-  .tfa-code-input {
-    width: 30px;
-    height: 40px;
-    font-size: 18px;
+/* Spinner styles for loading */
+.fb-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.fb-spinner-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.fb-spinner-ring {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 4px solid transparent;
+  border-top: 4px solid #1877f2;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.fb-spinner-ring-inner {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  border: 3px solid transparent;
+  border-top: 3px solid #1877f2;
+  border-radius: 50%;
+  animation: spin-reverse 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Add these styles to your TwoFactorAuth.css */
+
+/* Disabled button state */
+.fb-2fa-continue-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fb-2fa-alt-button:disabled {
+  background-color: #f5f6f7;
+  color: #bcc0c4;
+  cursor: not-allowed;
+}
+
+/* Loading spinner overlay */
+.fb-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.fb-spinner-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.fb-spinner-ring-inner {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid #1877f2;
+  border-left: 4px solid #1877f2;
+  border-right: 4px solid #1877f2;
+  border-radius: 50%;
+  animation: spin-reverse 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
   }
 }
