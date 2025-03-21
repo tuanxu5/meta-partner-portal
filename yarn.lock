@@ -1175,7 +1175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/app@npm:0.11.3":
+"@firebase/app@npm:0.11.3, @firebase/app@npm:^0.11.3":
   version: 0.11.3
   resolution: "@firebase/app@npm:0.11.3"
   dependencies:
@@ -6773,6 +6773,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rest-express@workspace:."
   dependencies:
+    "@firebase/app": "npm:^0.11.3"
     "@greatsumini/react-facebook-login": "npm:^3.4.0"
     "@hookform/resolvers": "npm:^3.9.1"
     "@jridgewell/trace-mapping": "npm:^0.3.25"
