@@ -349,7 +349,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-md" onClick={(e) => e.stopPropagation()}>
+        <div className="absolute w-full lg:hidden bg-white shadow-md" onClick={(e) => e.stopPropagation()}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item, index) => (
               <div key={index} className="border-b border-gray-200 last:border-b-0">

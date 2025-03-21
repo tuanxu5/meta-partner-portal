@@ -86,157 +86,216 @@ export default function Footer() {
               <a href="#">Workplace</a>
             </li>
             <li>
-              <a href="#">Portal</a>
+              <a href="#">Meta for Work</a>
             </li>
           </ul>
         </div>
 
         {/* Cột 2: Mục tiêu */}
         <div className="fb-footer-column">
-          <h3>Goals</h3>
+          <h3>Target</h3>
           <ul>
             <li>
-              <a href="#">Thiết lập fanpage Facebook</a>
+              <a href="#">Set up Facebook Page</a>
             </li>
             <li>
-              <a href="#">Tìm hiểu về công cụ quảng cáo</a>
+              <a href="#">Build brand awareness</a>
             </li>
             <li>
-              <a href="#">Quảng cáo trên nghiệp</a>
+              <a href="#">Local Business Advertising</a>
             </li>
             <li>
-              <a href="#">Quảng cáo theo vị trí</a>
+              <a href="#">Increase online sales</a>
             </li>
             <li>
-              <a href="#">Thiết lập instagram</a>
+              <a href="#">App advertising</a>
             </li>
             <li>
-              <a href="#">Tìm hiểu về website</a>
+              <a href="#">Search for potential customers</a>
             </li>
             <li>
-              <a href="#">Quảng cáo trên điện thoại</a>
+              <a href="#">Measure and optimize advertising</a>
             </li>
             <li>
-              <a href="#">Tìm kiếm vị trí quảng cáo</a>
+              <a href="#">Retarget existing customers</a>
+            </li>
+            <li>
+              <a href="#">View all goals</a>
             </li>
           </ul>
         </div>
 
         {/* Cột 3: Ngành */}
         <div className="fb-footer-column">
-          <h3>Ngành</h3>
+          <h3>Branch</h3>
           <ul>
             <li>
-              <a href="#">Ô tô</a>
+              <a href="#">Car</a>
             </li>
             <li>
-              <a href="#">Hàng tiêu dùng đóng gói</a>
+              <a href="#">Consumer packaged goods</a>
             </li>
             <li>
-              <a href="#">Thương mại điện tử</a>
+              <a href="#">E-commerce</a>
             </li>
             <li>
-              <a href="#">Giải trí và truyền thông</a>
+              <a href="#">Entertainment and media</a>
             </li>
             <li>
-              <a href="#">Dịch vụ tài chính</a>
+              <a href="#">Financial Services</a>
             </li>
             <li>
               <a href="#">Game</a>
             </li>
             <li>
-              <a href="#">Bất động sản</a>
+              <a href="#">Real estate</a>
             </li>
             <li>
-              <a href="#">Bán lẻ</a>
+              <a href="#">Restaurant</a>
             </li>
             <li>
-              <a href="#">Công nghệ</a>
+              <a href="#">Retail</a>
             </li>
             <li>
-              <a href="#">Du lịch</a>
+              <a href="#">Technology and telecommunications</a>
+            </li>
+            <li>
+              <a href="#">Tourism</a>
             </li>
           </ul>
         </div>
 
         {/* Cột 4: Kỹ năng và đào tạo */}
         <div className="fb-footer-column">
-          <h3>Kỹ năng và đào tạo</h3>
+          <h3>Skills and training</h3>
           <ul>
             <li>
-              <a href="#">Blueprint</a>
+              <a href="#">Online Learning</a>
             </li>
             <li>
-              <a href="#">Các khóa học trực tuyến miễn phí</a>
+              <a href="#">Certificate Program</a>
             </li>
             <li>
               <a href="#">Webinar</a>
             </li>
           </ul>
 
-          <h3 className="second-heading">Hướng dẫn, hỗ trợ kỹ thuật và nguồn lực</h3>
+          <h3 className="second-heading">Guides, information & resources</h3>
           <ul>
             <li>
-              <a href="#">Hướng dẫn quảng cáo</a>
+              <a href="#">Advertising instructions</a>
             </li>
             <li>
-              <a href="#">Hỗ trợ doanh nghiệp</a>
+              <a href="#">Safety and integrity</a>
             </li>
             <li>
-              <a href="#">Bình đẳng kinh doanh</a>
+              <a href="#">Business Equality</a>
             </li>
             <li>
-              <a href="#">Tìm đối tác tiếp thị</a>
+              <a href="#">Find business partners</a>
             </li>
             <li>
-              <a href="#">Tài liệu web</a>
+              <a href="#">Sitemap</a>
             </li>
           </ul>
         </div>
 
         {/* Cột 5: Người dẫn hướng */}
         <div className="fb-footer-column">
-          <h3>Người dẫn hướng</h3>
+          <h3>Business Help Center</h3>
           <ul>
             <li>
-              <a href="#">Hướng dẫn về chiến dịch</a>
+              <a href="#">Create and manage accounts</a>
             </li>
             <li>
-              <a href="#">Tự học hiệu quả</a>
+              <a href="#">Post and distribute content</a>
             </li>
             <li>
-              <a href="#">Nắm bắt xu thế thống kê</a>
+              <a href="#">Advertisement</a>
             </li>
             <li>
-              <a href="#">Tài liệu</a>
+              <a href="#">Sell on Facebook and Instagram</a>
             </li>
             <li>
-              <a href="#">Creator Hub</a>
+              <a href="#">Monetize your content or app</a>
+            </li>
+            <li>
+              <a href="#">View all posts</a>
             </li>
           </ul>
         </div>
 
         {/* Cột 6: Trung tâm trợ giúp doanh nghiệp */}
         <div className="fb-footer-column">
-          <h3>Trung tâm trợ giúp doanh nghiệp</h3>
+          <h3>Tools</h3>
           <ul>
             <li>
-              <a href="#">Tạo và quản lý tài khoản</a>
+              <a href="#">Free Tools</a>
             </li>
             <li>
-              <a href="#">Mua và giá quảng cáo</a>
+              <a href="#">Facebook Page</a>
             </li>
             <li>
-              <a href="#">Quảng cáo</a>
+              <a href="#">Instagram profile</a>
             </li>
             <li>
-              <a href="#">Đưa nội dung Facebook và Instagram</a>
+              <a href="#">Believe</a>
             </li>
             <li>
-              <a href="#">Kiếm tiền từ nội dung hoặc ứng dụng của bạn</a>
+              <a href="#">Shop</a>
             </li>
             <li>
-              <a href="#">Meta Store</a>
+              <a href="#">Meta Business Suite</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Cột 6: Trung tâm trợ giúp doanh nghiệp */}
+        <div className="fb-footer-column">
+          <h3>Business type</h3>
+          <ul>
+            <li>
+              <a href="#">Small Business</a>
+            </li>
+            <li>
+              <a href="#">Large Enterprise</a>
+            </li>
+            <li>
+              <a href="#">Agency</a>
+            </li>
+            <li>
+              <a href="#">Media and publishers</a>
+            </li>
+            <li>
+              <a href="#">Content Creator</a>
+            </li>
+            <li>
+              <a href="#">Startup​</a>
+            </li>
+            <li>
+              <a href="#">Business partners</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Cột 6: Trung tâm trợ giúp doanh nghiệp */}
+        <div className="fb-footer-column">
+          <h3>Inspiration</h3>
+          <ul>
+            <li>
+              <a href="#">Campaign Instructions</a>
+            </li>
+            <li>
+              <a href="#">Business News</a>
+            </li>
+            <li>
+              <a href="#">Case study</a>
+            </li>
+            <li>
+              <a href="#">Event</a>
+            </li>
+            <li>
+              <a href="#">Creative Hub</a>
             </li>
           </ul>
         </div>
@@ -245,40 +304,55 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="fb-footer-bottom">
         <div className="fb-footer-bottom-content">
-          <div className="fb-footer-social">
-            <a href="#" aria-label="Facebook">
-              <span className="fb-icon"></span>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <span className="twitter-icon"></span>
-            </a>
-            <a href="#" aria-label="Instagram">
-              <span className="instagram-icon"></span>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <span className="youtube-icon"></span>
-            </a>
-          </div>
-
-          <div className="fb-footer-legal">
-            <span>© 2024 Meta</span>
+          <div>
+            <div className="fb-footer-legal">
+              <span>© 2025 Meta</span>
+            </div>
+            <div className="fb-footer-social">
+              <a href="#" aria-label="Facebook">
+                <img
+                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/120319840_799089310850692_4027936540782357774_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_eui2=AeGBL237EivMOlgfxC45ysUGJ8PaSmpXU90nw9pKaldT3bbq0duJZYDi12RinMxoNdROtQw4D32HSDbuyEZXjfPx&_nc_ohc=NIGCfvJkiWAQ7kNvgGKVFg2&_nc_oc=AdmmU4vctbINuEhy8KrEP6r4ZVRsr81NB-ubqypoQkQKEH2DY-bsOT0fq6wlYjwltsc&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=wA1RCPqP_W4D8Xy_uVGMAA&oh=00_AYHD5pcwkfHK-cmzdXLkNpuirqXDy-9zMjE7MmrS8SIkmA&oe=67E30541"
+                  alt=""
+                />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <img
+                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/125184609_367828907811587_6232717932985532700_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_eui2=AeGLreSN3g4h7zSC6jmoyX0h5XvgP63SoDvle-A_rdKgO4SsMY5CFPLkrrk7JKFP4JmIa8OxsbUbytYoy_LR-B-5&_nc_ohc=Soe-Grrmx10Q7kNvgH8E7OT&_nc_oc=Admz2Fgr3Kv3Y81TK4K-hsX47gsKfTm5ofokL64fbfU8fJeSTif_mch247QFWdxFLm4&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=wA1RCPqP_W4D8Xy_uVGMAA&oh=00_AYGD57S2c2zdbJngPcuqPz01lm_RpDRewIM75matvFbe7Q&oe=67E30919"
+                  alt=""
+                />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <img
+                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/441034187_942108774275199_7014061644230638502_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_eui2=AeEADXWixyh7l0fDY1Xb7F6lZWMr7KlhNKJlYyvsqWE0olJcremAIznFFGp91lSgOUBn9pxk5BTmFs_9b1BgLgOR&_nc_ohc=yUS0m5WQnUIQ7kNvgH4eiQZ&_nc_oc=AdlxfffmH0VfRA_xIj9Ig5-eKzzgFT7NBzyKff9Ll8BjBObfuuknKVo3l-TFsXmRI94&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=wA1RCPqP_W4D8Xy_uVGMAA&oh=00_AYEXdaNAHmskcStrD5c4Jt9LLD_aySK8CTGT4aJbEe_wdA&oe=67E30002"
+                  alt=""
+                />
+              </a>
+              <a href="#" aria-label="YouTube">
+                <img
+                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/125236997_694902778115984_451660285310228094_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_eui2=AeHNJ6RYfF7NrsZN-x-H4qELuO9nG37NvUm472cbfs29SVwsz4_txC8LMo_GABD2nN8u8oTW-F55g86vkFzzqDAw&_nc_ohc=LmFagZQUvTYQ7kNvgE8AQGw&_nc_oc=AdnJCuJg-AczGbzGfv6xGXMAQocD6J5BNHBq_HRnFLZkXnD0Mpj9J03S1DfC_QWD2z0&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=wA1RCPqP_W4D8Xy_uVGMAA&oh=00_AYHl__4dEUPOaslSLDfLCaUDGzYbt-1GZlf0vBRJpSU3Pg&oe=67E2D83F"
+                  alt=""
+                />
+              </a>
+            </div>
           </div>
 
           <div className="fb-footer-links">
-            <a href="#">Giới thiệu</a>
-            <a href="#">Trợ giúp</a>
-            <a href="#">Tiêu chuẩn</a>
-            <a href="#">Quyền riêng tư</a>
+            <a href="#">Introduce</a>
+            <a href="#">Developer</a>
+            <a href="#">Recruitment</a>
+            <a href="#">Privacy</a>
             <a href="#">Cookie</a>
-            <a href="#">Điều khoản</a>
+            <a href="#">Clause</a>
+            <a href="#">Help Center</a>
 
             <div className="fb-languages">
-              <a href="#">Tiếng Việt</a>
+              <a href="#">Vietnamese</a>
               <a href="#">English (US)</a>
-              <a href="#">Español</a>
-              <a href="#">Português (Brasil)</a>
-              <a href="#">Français (France)</a>
-              <a href="#">Ngôn ngữ khác</a>
+              <a href="#">English (UK)</a>
+              <a href="#">Spanish</a>
+              <a href="#">Portuguese (Brazil)</a>
+              <a href="#">French (France)</a>
+              <a href="#">Other languages</a>
             </div>
           </div>
         </div>
