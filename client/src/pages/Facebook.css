@@ -27,12 +27,13 @@
 }
 
 .title-facebook {
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
+  font-size: 14px;
 }
 
 .fb-logo {
-  width: 32px;
+  width: 20px;
 }
 
 .error-text {
@@ -46,8 +47,8 @@
 }
 
 .fb-intro-text {
-  font-size: 16px;
-  color: #1c1e21;
+  font-size: 14px;
+  color: black;
   margin-bottom: 16px;
 }
 
@@ -74,28 +75,46 @@
 }
 
 .fb-login-form {
+  padding: 8px 36px;
   margin-top: 16px;
 }
 
 .fb-form-group {
   margin-bottom: 16px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .fb-form-group label {
-  font-size: 14px;
-  color: #606770;
-  margin-bottom: 8px;
+  font-size: 13px;
+  color: black;
+  display: block;
+  width: 120px;
+  font-weight: 600;
 }
 
 .fb-input {
-  padding: 8px 10px;
-  font-size: 16px;
-  border: 1px solid #dddfe2;
+  padding: 10px 10px;
+  font-size: 10px !important;
   border-radius: 3px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.fb-input {
+  width: 250px;
+  height: 30px;
+  border: 1px solid #dddfe2 !important;
+  font-size: 12px !important;
+}
+
+.fb-input:focus {
+  width: 250px;
+  height: 28px;
+  font-size: 12px !important;
+  border: none !important;
+  outline: 1.5px solid #333 !important;
 }
 
 .fb-input:focus {
@@ -106,8 +125,9 @@
 .fb-actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 16px;
+  align-items: start;
+  margin-top: 24px;
+  padding-left: 128px;
 }
 
 .fb-login-button {
@@ -115,11 +135,11 @@
   color: white;
   border: none;
   border-radius: 3px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
+  padding: 5px 0px;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  width: 120px;
+  width: 60px;
   margin-bottom: 16px;
 }
 
@@ -130,6 +150,7 @@
 .fb-forgot-link {
   color: #3b5998;
   font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
   margin-bottom: 16px;
 }
@@ -143,9 +164,9 @@
   color: white;
   border: none;
   border-radius: 3px;
-  padding: 10px 16px;
+  padding: 5px 16px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   margin-bottom: 8px;
 }
