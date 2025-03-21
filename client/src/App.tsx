@@ -11,6 +11,7 @@ import Test from "@/pages/test";
 import VerifyFa from "@/pages/verify-fa";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Redirect, Route, Switch } from "wouter";
+import { ScrollToTop } from "./components/scroll-to-top/scroll-to-top";
 import { queryClient } from "./lib/queryClient";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -41,6 +42,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router />
       <Toaster />
+      <ScrollToTop />
     </QueryClientProvider>
   );
 }

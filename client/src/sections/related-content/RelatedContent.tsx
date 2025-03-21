@@ -37,7 +37,7 @@ export default function RelatedContent() {
   ];
 
   return (
-    <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
+    <div className="max-w-[1232px] mx-auto py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-0">
       <h2 className="text-[24px] sm:text-[28px] md:text-[32px] leading-tight md:leading-[38px] tracking-[0.5px] md:tracking-[1px] font-medium mb-6 sm:mb-8 md:mb-[32px]">
         Related content
       </h2>

@@ -201,7 +201,7 @@
 }
 
 /* Enhanced responsive styles */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1232px) {
   .apply-container {
     padding: 50px 24px 20px;
   }

@@ -108,9 +108,9 @@
 
 /* Main footer content */
 .fb-footer-content {
-  max-width: 1200px;
+  max-width: 1232px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 30px;
