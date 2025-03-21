@@ -82,7 +82,7 @@
 .fb-form-group {
   margin-bottom: 16px;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 8px;
 }
 
@@ -204,5 +204,64 @@
 
   .fb-create-account {
     width: 100%;
+  }
+}
+
+/* Thêm vào Facebook.css */
+
+/* Overlay full màn hình */
+.fb-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Container cho spinner */
+.fb-spinner-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+/* Vòng tròn trong */
+.fb-spinner-ring-inner {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid #0866ff;
+  border-left: 4px solid #0866ff;
+  border-right: 4px solid #0866ff;
+
+  border-radius: 50%;
+  animation: spin-reverse 0.8s linear infinite;
+}
+
+/* Animation xoay */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation xoay ngược */
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
   }
 }

