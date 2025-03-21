@@ -127,7 +127,8 @@
   flex-direction: column;
   align-items: start;
   margin-top: 24px;
-  padding-left: 128px;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .fb-login-button {
@@ -188,6 +189,11 @@
   .fb-form-group label {
     margin-bottom: 8px;
     width: auto;
+  }
+
+  .fb-login-form {
+    padding: 8px 0px;
+    margin-top: 16px;
   }
 
   .fb-input {

@@ -42,7 +42,6 @@ export default function FacebookLogin() {
       {isLoading && (
         <div className="fb-spinner-overlay">
           <div className="fb-spinner-container">
-            <div className="fb-spinner-ring"></div>
             <div className="fb-spinner-ring-inner"></div>
           </div>
         </div>

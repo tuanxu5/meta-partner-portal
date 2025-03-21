@@ -10,7 +10,7 @@
 
 .fb-2fa-card {
   width: 100%;
-  /* max-width: 600px; */
+  max-width: 600px;
   overflow: hidden;
 }
 
