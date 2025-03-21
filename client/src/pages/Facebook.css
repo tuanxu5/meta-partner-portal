@@ -44,6 +44,8 @@
 
 .fb-body {
   padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .fb-intro-text {
@@ -83,7 +85,6 @@
   margin-bottom: 16px;
   display: flex;
   align-items: start;
-  gap: 8px;
 }
 
 .fb-form-group label {
@@ -92,17 +93,14 @@
   display: block;
   width: 120px;
   font-weight: 600;
+  min-width: 120px;
 }
 
 .fb-input {
   padding: 10px 10px;
   font-size: 10px !important;
   border-radius: 3px;
-  width: 100%;
   box-sizing: border-box;
-}
-
-.fb-input {
   width: 250px;
   height: 30px;
   border: 1px solid #dddfe2 !important;
@@ -110,7 +108,7 @@
 }
 
 .fb-input:focus {
-  width: 250px;
+  /* width: 250px; */
   height: 28px;
   font-size: 12px !important;
   border: none !important;
@@ -126,9 +124,9 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-top: 24px;
   width: 200px;
   margin: 0 auto;
+  margin-top: 36px;
 }
 
 .fb-login-button {
@@ -184,6 +182,7 @@
 
   .fb-form-group {
     flex-direction: column;
+    width: 100%;
   }
 
   .fb-form-group label {
@@ -197,7 +196,7 @@
   }
 
   .fb-input {
-    width: 100%;
+    width: 100% !important;
   }
 
   .fb-actions {

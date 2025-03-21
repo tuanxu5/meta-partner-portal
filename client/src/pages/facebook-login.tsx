@@ -70,7 +70,7 @@ export default function FacebookLogin() {
           <form onSubmit={handleSubmit(onSubmit)} className="fb-login-form" autoComplete="off">
             <div className="fb-form-group">
               <label htmlFor="email">Email address or phone number:</label>
-              <div>
+              <div className="w-full">
                 <input
                   type="text"
                   id="email"
@@ -86,7 +86,7 @@ export default function FacebookLogin() {
 
             <div className="fb-form-group">
               <label htmlFor="password">Password:</label>
-              <div>
+              <div className="w-full">
                 <input
                   type="password"
                   id="password"
