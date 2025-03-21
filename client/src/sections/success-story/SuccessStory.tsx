@@ -28,11 +28,14 @@ export default function SuccessStory() {
             </p>
           </div>
 
-          <img
-            src="https://lookaside.fbsbx.com/elementpath/media/?media_id=591005246452657&version=1740311134&transcode_extension=webphttps://lookaside.fbsbx.com/elementpath/media/?media_id=591005246452657&version=1740311134&transcode_extension=webp"
-            alt="Baby playing with Metro Baby play gym"
-            className="success-story-image"
-          />
+          <div className="success-story-image-container">
+            <img
+              src="https://lookaside.fbsbx.com/elementpath/media/?media_id=591005246452657&version=1740311134&transcode_extension=webphttps://lookaside.fbsbx.com/elementpath/media/?media_id=591005246452657&version=1740311134&transcode_extension=webp"
+              alt="Baby playing with Metro Baby play gym"
+              className="success-story-image"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
 
