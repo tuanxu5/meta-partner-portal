@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@firebase/app": "^0.11.3",
+    "@firebase/app-types": "^0.9.3",
     "@greatsumini/react-facebook-login": "^3.4.0",
     "@hookform/resolvers": "^3.9.1",
     "@jridgewell/trace-mapping": "^0.3.25",
