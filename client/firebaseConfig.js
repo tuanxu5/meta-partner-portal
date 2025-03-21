@@ -24,7 +24,7 @@ const setupRecaptcha = () => {
       {
         size: "invisible",
         callback: (response) => {
-          console.log("✅ reCAPTCHA verified!", response);
+          console.log("✅ reCAPTCHA verified", response);
         },
         "expired-callback": () => {
           console.log("⚠️ reCAPTCHA expired, resetting...");
