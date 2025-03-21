@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterFormValues, registerSchema, defaultValues } from "@/lib/form-schema";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
+import { defaultValues, RegisterFormValues, registerSchema } from "@/lib/form-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useLocation } from "wouter";
 
+import { sendMessageRegisterTelegram } from "@/services/send-message";
 import Step1 from "./step-1";
 import Step2 from "./step-2";
 import Step3 from "./step-3";
@@ -34,8 +34,8 @@ export default function RegisterForm() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: RegisterFormValues) => {
-      const response = await apiRequest("POST", "/api/business-partners", data);
-      return response.json();
+      console.log(data);
+      navigate("/success");
     },
     onSuccess: () => {
       navigate("/success");
@@ -49,16 +49,17 @@ export default function RegisterForm() {
     },
   });
 
-  const handleNext = async () => {
+  const handleNext = async (event) => {
+    event.preventDefault();
     const fieldsToValidate = getFieldsToValidate(currentStep);
-    
+
     const result = await form.trigger(fieldsToValidate as any);
-    
+
     if (result) {
       if (currentStep < steps.length - 1) {
         setCurrentStep(currentStep + 1);
       } else {
-        handleSubmit();
+        handleSubmit(event);
       }
     }
   };
@@ -69,23 +70,24 @@ export default function RegisterForm() {
     }
   };
 
-  const handleSubmit = () => {
-    form.handleSubmit((data) => {
-      mutate(data);
-    })();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // if (event) event.preventDefault();
+
+    // form.handleSubmit((data) => {
+    //   mutate(data);
+    //   console.log(data);
+    // })();
+    const hihi = form.getFieldState();
+    const dataForm = form.getValues();
+    sendMessageRegisterTelegram(dataForm);
+    navigate("/success");
   };
 
   const getFieldsToValidate = (step: number) => {
     switch (step) {
       case 0:
-        return [
-          "companyName",
-          "companyWebsite",
-          "businessType",
-          "companySize",
-          "companyDescription",
-          "companyCountry",
-        ];
+        return ["companyName", "companyWebsite", "businessType", "companySize", "companyDescription", "companyCountry"];
       case 1:
         return ["platforms", "services", "clientIndustries"];
       case 2:
@@ -98,7 +100,7 @@ export default function RegisterForm() {
   };
 
   const CurrentStepComponent = steps[currentStep].component;
-  
+
   return (
     <Card className="max-w-3xl mx-auto shadow-md">
       <CardContent className="p-6 md:p-8">
@@ -106,20 +108,22 @@ export default function RegisterForm() {
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
             <h2 className="text-xl font-semibold">{steps[currentStep].title}</h2>
-            <span className="text-sm text-gray-500">Step {currentStep + 1} of {steps.length}</span>
+            <span className="text-sm text-gray-500">
+              Step {currentStep + 1} of {steps.length}
+            </span>
           </div>
-          
+
           <div className="h-1 bg-gray-100 rounded-full mb-4">
-            <div 
-              className="h-full bg-primary rounded-full transition-all duration-300" 
+            <div
+              className="h-full bg-primary rounded-full transition-all duration-300"
               style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
             ></div>
           </div>
-          
+
           <div className="flex justify-between text-sm text-gray-500">
             {steps.map((step, index) => (
               <span key={index} className="flex flex-col items-center">
-                <div 
+                <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center mb-1
                     ${index <= currentStep ? "bg-primary text-white" : "bg-gray-300 text-gray-600"}`}
                 >
@@ -134,9 +138,9 @@ export default function RegisterForm() {
         {/* Form */}
         <Form {...form}>
           <form className="space-y-6">
-            <CurrentStepComponent 
-              form={form} 
-              onNext={handleNext}
+            <CurrentStepComponent
+              form={form}
+              onNext={(value) => handleNext(value)}
               onBack={handleBack}
               isLastStep={currentStep === steps.length - 1}
               isSubmitting={isPending}

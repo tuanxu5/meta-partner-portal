@@ -22,7 +22,7 @@ export const registerSchema = insertBusinessPartnerSchema.extend({
   certifications: z.array(z.string()).optional(),
   yearsExperience: z.string().min(1, "Please select your years of experience"),
   monthlyAdSpend: z.string().optional().nullable(),
-  teamExpertise: z.string().min(20, "Please provide more details about your team's expertise (at least 20 characters)"),
+  teamExpertise: z.string(),
   references: z.string().optional().nullable(),
   
   // Terms (Step 4)
