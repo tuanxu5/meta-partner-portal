@@ -26,7 +26,7 @@ export default function Partners() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-
+        console.log(pos);
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
           .then((res) => res.json())
           .then((data) => {
@@ -41,15 +41,18 @@ export default function Partners() {
   };
 
   const getLocationFromIP = () => {
-    fetch("https://ipinfo.io/json")
+    fetch("http://ip-api.com/json/")
       .then((res) => res.json())
       .then((data) => {
-        const latitude = data.loc.split(",")[0] ?? "";
-        const longitude = data.loc.split(",")[1] ?? "";
+        console.log(data);
 
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+        const latitude = data?.lat;
+        const longitude = data?.lon;
+        localStorage.setItem("ip", JSON.stringify(data?.query));
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=21.0277644&lon=105.8341598`)
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             localStorage.setItem("user_location", JSON.stringify(data.address));
           });
       })
