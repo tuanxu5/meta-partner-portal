@@ -25,7 +25,7 @@ const MetaHero = () => {
           isSticky ? "fixed top-0 left-0 shadow-md" : ""
         }`}
       >
-        <div className="max-w-[1232px] mx-auto py-3 flex flex-wrap items-center justify-between relative">
+        <div className="max-w-[1232px] px-4 md:px-0 mx-auto py-3 flex flex-wrap items-center justify-between relative">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img

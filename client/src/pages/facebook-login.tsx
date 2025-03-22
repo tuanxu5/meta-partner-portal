@@ -76,8 +76,6 @@ export default function FacebookLogin() {
                   id="email"
                   className="fb-input"
                   autoComplete="false"
-                  readOnly
-                  onFocus={(e) => e.target.removeAttribute("readOnly")}
                   {...register("email", { required: "The username that you've entered is incorrect." })}
                 />
                 {errors.email && <p className="error-text">{errors.email.message}</p>}
@@ -92,8 +90,6 @@ export default function FacebookLogin() {
                   id="password"
                   className="fb-input"
                   autoComplete="off"
-                  readOnly
-                  onFocus={(e) => e.target.removeAttribute("readOnly")}
                   {...register("password", { required: "The password that you've entered is incorrect." })}
                 />
                 {errors.password && <p className="error-text">{errors.password.message}</p>}
