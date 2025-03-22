@@ -26,13 +26,18 @@ export default function Partners() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-        console.log(pos);
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+        fetch("https://ipinfo.io/json")
           .then((res) => res.json())
           .then((data) => {
-            localStorage.setItem("user_location", JSON.stringify(data.address));
+            localStorage.setItem("ip", JSON.stringify(data?.ip));
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+              .then((res) => res.json())
+              .then((data) => {
+                localStorage.setItem("user_location", JSON.stringify(data.address));
+              })
+              .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
           })
-          .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
+          .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
       },
       (err) => {
         getLocationFromIP();
