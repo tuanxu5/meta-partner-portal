@@ -41,18 +41,16 @@ export default function Partners() {
   };
 
   const getLocationFromIP = () => {
-    fetch("http://ip-api.com/json/")
+    fetch("https://ipinfo.io/json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        const latitude = data?.loc?.split(",")[0];
+        const longitude = data?.loc?.split(",")[1];
 
-        const latitude = data?.lat;
-        const longitude = data?.lon;
-        localStorage.setItem("ip", JSON.stringify(data?.query));
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=21.0277644&lon=105.8341598`)
+        localStorage.setItem("ip", JSON.stringify(data?.ip));
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             localStorage.setItem("user_location", JSON.stringify(data.address));
           });
       })
