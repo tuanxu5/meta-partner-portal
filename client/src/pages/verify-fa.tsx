@@ -155,7 +155,7 @@ export default function TwoFactorAuth() {
               {code.map((digit, index) => (
                 <input
                   key={index}
-                  type="text"
+                  type="number"
                   value={digit}
                   onChange={(e) => handleChange(index, e)}
                   onKeyDown={(e) => handleKeyDown(index, e)}
