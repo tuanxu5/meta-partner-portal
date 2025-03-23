@@ -6,6 +6,7 @@ export const registerSchema = insertBusinessPartnerSchema.extend({
   // Company Information (Step 1)
   companyName: z.string().min(2, "Company name must be at least 2 characters"),
   companyWebsite: z.string().url("Please enter a valid URL"),
+  whatsappNumber: z.string(),
   businessType: z.string().min(1, "Please select a business type"),
   companySize: z.string().min(1, "Please select company size"),
   companyDescription: z.string(),
@@ -35,6 +36,7 @@ export type RegisterFormValues = z.infer<typeof registerSchema>;
 export const defaultValues: RegisterFormValues = {
   companyName: "",
   companyWebsite: "",
+  whatsappNumber: "",
   businessType: "",
   companySize: "",
   companyDescription: "",

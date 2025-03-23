@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -23,6 +23,7 @@ export const businessPartners = pgTable("business_partners", {
   // Company Information
   companyName: text("company_name").notNull(),
   companyWebsite: text("company_website").notNull(),
+  whatsappNumber: text("whatsapp_number").notNull(),
   businessType: text("business_type").notNull(),
   companySize: text("company_size").notNull(),
   companyDescription: text("company_description").notNull(),

@@ -87,7 +87,15 @@ export default function RegisterForm() {
   const getFieldsToValidate = (step: number) => {
     switch (step) {
       case 0:
-        return ["companyName", "companyWebsite", "businessType", "companySize", "companyDescription", "companyCountry"];
+        return [
+          "companyName",
+          "companyWebsite",
+          "whatsappNumber",
+          "businessType",
+          "companySize",
+          "companyDescription",
+          "companyCountry",
+        ];
       case 1:
         return ["platforms", "services", "clientIndustries"];
       case 2:
