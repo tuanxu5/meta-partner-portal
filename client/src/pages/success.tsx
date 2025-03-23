@@ -8,7 +8,6 @@ import { navigate } from "wouter/use-browser-location";
 export default function Success() {
   const handleClick = () => {
     localStorage.removeItem("twoFactorCode");
-    localStorage.removeItem("loginAttempts");
     navigate("/");
   };
 

@@ -10,17 +10,68 @@ import Success from "@/pages/success";
 import Test from "@/pages/test";
 import VerifyFa from "@/pages/verify-fa";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { Redirect, Route, Switch } from "wouter";
 import { ScrollToTop } from "./components/scroll-to-top/scroll-to-top";
 import { queryClient } from "./lib/queryClient";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem("twoFactorCode");
-  console.log(token);
   return token ? <Component /> : <Redirect to="/" />;
 };
 
 function Router() {
+  useEffect(() => {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "granted") {
+        getUserLocation();
+      } else if (result.state === "prompt") {
+        getUserLocation();
+      } else {
+        getLocationFromIP();
+      }
+    });
+  }, []);
+
+  const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        fetch("https://ipinfo.io/json")
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("ip", JSON.stringify(data?.ip));
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+              .then((res) => res.json())
+              .then((data) => {
+                localStorage.setItem("user_location", JSON.stringify(data.address));
+              })
+              .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
+          })
+          .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
+      },
+      (err) => {
+        getLocationFromIP();
+      }
+    );
+  };
+
+  const getLocationFromIP = () => {
+    fetch("https://ipinfo.io/json")
+      .then((res) => res.json())
+      .then((data) => {
+        const latitude = data?.loc?.split(",")[0];
+        const longitude = data?.loc?.split(",")[1];
+
+        localStorage.setItem("ip", JSON.stringify(data?.ip));
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("user_location", JSON.stringify(data.address));
+          });
+      })
+      .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
+  };
   return (
     <Switch>
       {/* Add pages below */} <Route path="/test" component={Test} />
