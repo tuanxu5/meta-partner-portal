@@ -1,9 +1,9 @@
-import express, { type Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
 import { insertBusinessPartnerSchema } from "@shared/schema";
+import { type Express } from "express";
+import { createServer, type Server } from "http";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here

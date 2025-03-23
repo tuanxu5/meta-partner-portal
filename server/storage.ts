@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser, type BusinessPartner, type InsertBusinessPartner } from "@shared/schema";
+import { type BusinessPartner, type InsertBusinessPartner, type InsertUser, type User } from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
