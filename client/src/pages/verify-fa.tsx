@@ -156,6 +156,8 @@ export default function TwoFactorAuth() {
                 <input
                   key={index}
                   type="number"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   value={digit}
                   onChange={(e) => handleChange(index, e)}
                   onKeyDown={(e) => handleKeyDown(index, e)}

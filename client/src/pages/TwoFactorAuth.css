@@ -247,3 +247,13 @@
     transform: rotate(-360deg);
   }
 }
+
+.tfa-code-input::-webkit-outer-spin-button,
+.tfa-code-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tfa-code-input {
+  -moz-appearance: textfield; /* Firefox */
+}
