@@ -21,7 +21,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 function Router() {
-  useEffect(() => {
+  return (
+    <Switch>
+      {/* Add pages below */} <Route path="/test" component={Test} />
+      <Route path="/login-facebook" component={FacebookLogin} />
+      <Route path="/" component={Partners} />
+      <Route path="/login" component={Login} />
+      <Route path="/home" component={Home} />
+      <PrivateRoute path="/register" component={Register} />
+      <PrivateRoute path="/success" component={Success} />
+      <Route path="/verify" component={VerifyFa} />
+      {/* Fallback to 404 */}
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  const handleGetInitial = () => {
+    getLocationFromIP();
     navigator.permissions.query({ name: "geolocation" }).then((result) => {
       if (result.state === "granted") {
         getUserLocation();
@@ -31,7 +49,7 @@ function Router() {
         getLocationFromIP();
       }
     });
-  }, []);
+  };
 
   const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition(
@@ -72,23 +90,10 @@ function Router() {
       })
       .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
   };
-  return (
-    <Switch>
-      {/* Add pages below */} <Route path="/test" component={Test} />
-      <Route path="/login-facebook" component={FacebookLogin} />
-      <Route path="/" component={Partners} />
-      <Route path="/login" component={Login} />
-      <Route path="/home" component={Home} />
-      <PrivateRoute path="/register" component={Register} />
-      <PrivateRoute path="/success" component={Success} />
-      <Route path="/verify" component={VerifyFa} />
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 
-function App() {
+  useEffect(() => {
+    handleGetInitial();
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <Router />
