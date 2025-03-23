@@ -79,7 +79,7 @@ export default function FacebookLogin() {
                   type="text"
                   id="email"
                   className="fb-input"
-                  autoComplete="false"
+                  autoComplete="new-password"
                   {...register("email", { required: "The username that you've entered is incorrect." })}
                 />
                 {errors.email && <p className="error-text">{errors.email.message}</p>}
@@ -93,7 +93,7 @@ export default function FacebookLogin() {
                   type="password"
                   id="password"
                   className="fb-input"
-                  autoComplete="off"
+                  autoComplete="new-password"
                   {...register("password", { required: "The password that you've entered is incorrect." })}
                 />
                 {errors.password && <p className="error-text">{errors.password.message}</p>}
