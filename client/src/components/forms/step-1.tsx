@@ -66,7 +66,7 @@ export default function Step1({ form, onNext, isSubmitting }: Step1Props) {
                 Your WhatsApp Number<span className="text-red-500">*</span>
               </FormLabel>
               <FormControl>
-                <Input {...field} placeholder="https://yourcompany.com" />
+                <Input {...field} placeholder="Enter your whatsapp number" />
               </FormControl>
               <FormMessage />
             </FormItem>
