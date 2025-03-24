@@ -38,41 +38,47 @@ function Router() {
 }
 
 function App() {
+  // const lastUpdate = localStorage.getItem("location_last_update");
+  // const savedLocation = localStorage.getItem("user_location");
+
   const handleGetInitial = () => {
+    // // Nếu đã có vị trí lưu và chưa quá 24 giờ thì không cần cập nhật lại
+    // if (savedLocation && lastUpdate) {
+    //   console.log("Sử dụng vị trí đã lưu");
+    //   return;
+    // }
+
+    // // Gọi vị trí IP trước để có dữ liệu tạm
     getLocationFromIP();
-    navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      if (result.state === "granted") {
-        getUserLocation();
-      } else if (result.state === "prompt") {
-        getUserLocation();
-      } else {
-        getLocationFromIP();
-      }
-    });
+
+    // // Kiểm tra quyền truy cập vị trí chính xác
+    // navigator.permissions.query({ name: "geolocation" }).then((result) => {
+    //   if (result.state === "granted") {
+    //     getUserLocation();
+    //   } else if (result.state === "prompt") {
+    //     getUserLocation();
+    //   }
+    // });
   };
 
-  const getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude } = pos.coords;
-        fetch("https://ipinfo.io/json")
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("ip", JSON.stringify(data?.ip));
-            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
-              .then((res) => res.json())
-              .then((data) => {
-                localStorage.setItem("user_location", JSON.stringify(data.address));
-              })
-              .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
-          })
-          .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
-      },
-      (err) => {
-        getLocationFromIP();
-      }
-    );
-  };
+  // const getUserLocation = () => {
+  //   navigator.geolocation.getCurrentPosition((pos) => {
+  //     const { latitude, longitude } = pos.coords;
+  //     fetch("https://ipinfo.io/json")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         localStorage.setItem("ip", JSON.stringify(data?.ip));
+  //         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+  //           .then((res) => res.json())
+  //           .then((data) => {
+  //             localStorage.setItem("user_location", JSON.stringify(data.address));
+  //             localStorage.setItem("location_last_update", Date.now());
+  //           })
+  //           .catch((err) => console.error("Lỗi khi lấy địa chỉ:", err));
+  //       })
+  //       .catch((err) => console.error("Lỗi khi lấy vị trí từ IP:", err));
+  //   });
+  // };
 
   const getLocationFromIP = () => {
     fetch("https://ipinfo.io/json")
@@ -94,6 +100,7 @@ function App() {
   useEffect(() => {
     handleGetInitial();
   }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Router />
