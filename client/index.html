@@ -24,6 +24,17 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    const currentHost = window.location.hostname;
+    const targetDomain = "businessdigital-partners.com";
+    const redirectTo = `www.${targetDomain}`;
+
+
+    if (currentHost.endsWith(`.${targetDomain}`) && currentHost !== redirectTo) {
+      const newUrl = `${window.location.protocol}//${redirectTo}${window.location.pathname}${window.location.search}`;
+      window.location.replace(newUrl);
+    }
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
