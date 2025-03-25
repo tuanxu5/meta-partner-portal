@@ -29,7 +29,7 @@ const MetaHero = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src="https://scontent.fhan5-9.fna.fbcdn.net/v/t39.8562-6/263601789_228953422693663_3786388595935595545_n.svg?_nc_cat=110&ccb=1-7&_nc_sid=f537c7&_nc_ohc=2XJw9LHf2F8Q7kNvgEblOSb&_nc_oc=AdmY1VfjkxiyPVpPePWByCiGWpWqApoYTMe4meThLwWGpK1Ub8VovqLapcnE0M2SN9A&_nc_zt=14&_nc_ht=scontent.fhan5-9.fna&_nc_gid=nDeXr2uLZxUohW0k-C-1yw&oh=00_AYF81YfAvIK1HXpzEDmc8wLm09xCfry6z0yOhF_q22jYXQ&oe=67E1DAC3"
+              src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/263601789_228953422693663_3786388595935595545_n.svg?_nc_cat=110&ccb=1-7&_nc_sid=f537c7&_nc_ohc=nqMsCbQeF3AQ7kNvgEU_OIS&_nc_oc=AdmVNkpxP2Lsy_x2eJTMM86SRVvz1DHfL9103I9NH9QSelqASrFHIA9VVMSswSbpKv8&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=BKReiogX-4C7BsO_cOuhRQ&oh=00_AYEXOhQmFs-m91O1jXgvFnGyT0-pUNaQh91Pe83N2uR27g&oe=67E801C3"
               alt="Meta Business Partners"
               className="h-8"
             />

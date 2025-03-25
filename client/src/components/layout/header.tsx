@@ -176,7 +176,7 @@ export default function Header() {
             <Link to="/">
               <div className="flex-shrink-0">
                 <img
-                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/278025437_369851991690397_7980697822423283727_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=28b1f4&_nc_ohc=p3is92HE7kIQ7kNvgHXa-F4&_nc_oc=Adlzbkm8fqTYa39ufu73O7KhfNzvivcxVeioAqAhfbTJX026A_94zGxoLLaieoh41ps&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=d38dgjM9lzFdXfp7z6ShDA&oh=00_AYGPszmBDpu10MCVsBVWF5DbbvtQn3wGKYmKteLJ2zeCzg&oe=67E1B454"
+                  src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.8562-6/278025437_369851991690397_7980697822423283727_n.svg?_nc_cat=1&ccb=1-7&_nc_sid=28b1f4&_nc_ohc=-Ex_rDMglJMQ7kNvgEQxzVM&_nc_oc=AdnkxjIgZx_A5hGNfkhDS1WWSr2IcRpjcbKX3ieS4yZGsO41Hbt0-DmoExbzzz3C_MA&_nc_zt=14&_nc_ht=scontent.fhan19-1.fna&_nc_gid=BKReiogX-4C7BsO_cOuhRQ&oh=00_AYFBzEWiwDL4Jh-JdgQMCsYdj0BaONZmxjXGi_O7bxQ8Kw&oe=67E7DB54"
                   alt="Meta Business"
                   width="66"
                 />
